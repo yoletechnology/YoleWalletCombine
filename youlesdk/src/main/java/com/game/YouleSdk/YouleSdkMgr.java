@@ -123,7 +123,7 @@ public class YouleSdkMgr {
                         info.gaid,
                         info.imei,
                         info.mac,
-                        tempData.countryCode//"CH"
+                        tempData.countryCode
                          );
             }
         }).start();
