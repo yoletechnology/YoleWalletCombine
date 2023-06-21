@@ -54,6 +54,7 @@ dependencies {
     /******************************paysdk支付************************************/
     api "com.transsion.pay:paysdk:1.5.1.9"
 
+
 //    /******************************applovin广告源************************************/
 //    implementation 'com.applovin:applovin-sdk:+'
 //    implementation("androidx.lifecycle:lifecycle-process:2.2.0")
