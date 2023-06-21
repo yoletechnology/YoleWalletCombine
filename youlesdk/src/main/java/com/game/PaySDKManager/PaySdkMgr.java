@@ -53,46 +53,27 @@ public class PaySdkMgr {
         //设置严格模式，默认true，设置true后，经过多次查询后，支付中也会返回失败
         PaySDKManager.getsInstance().setStrict(var1);
     }
-    public void initAriesPay(Context var1, String var2, String var3, String var4,InitResultCallBack var5) {
-        Log.e(TAG,"initAriesPay");
-        this.initAriesPay(var1, "com.transsion.pay.ariessdk.demo", var2, var3, var4, 2, true, var5);
-    }
 
-    public void initAriesPay(Context var1, String var2, String var3, String var4, boolean var5, InitResultCallBack var6) {
-        this.initAriesPay(var1, "com.transsion.pay.ariessdk.demo", var2, var3, var4, 2, var5, var6);
-    }
 
     public void initAriesPay(Context var1, String var2, String var3, String var4, int var5, InitResultCallBack var6) {
-        this.initAriesPay(var1, "com.transsion.pay.ariessdk.demo", var2, var3, var4, var5, true, var6);
-    }
 
-    public void initAriesPay(Context var1, String var2, String var3, String var4, String var5,InitResultCallBack var6) {
-
-        this.initAriesPay(var1, var5, var2, var3, var4, 2, true, var6);
-    }
-    public synchronized void initAriesPay(Context var1, String var2, String var3, String var4, String var5, int var6, boolean var7, InitResultCallBack var8) {
-        Log.e(TAG,"initAriesPay");
-        PaySDKManager.getsInstance().initAriesPay(var1, var2, var3, var4,var5,var6, var7,new InitResultCallBack() {
+        PaySDKManager.getsInstance().initAriesPay(var1, var2, var3, var4,var5,new InitResultCallBack() {
             @Override public void onSuccess(List<SupportPayInfoEntity> list, boolean supportOnlinePay, CountryCurrencyData countryCurrencyData) {
 
-                var8.onSuccess(list,supportOnlinePay,countryCurrencyData);
+                var6.onSuccess(list,supportOnlinePay,countryCurrencyData);
             }
             @Override public void onFail(int code) {
                 Log.i(TAG,"onFail:"+code);
-                var8.onFail(code);
+                var6.onFail(code);
             }
         });
     }
+
     //美元转本位币
     public void convertUsdToLocal(Context var1, List<ConvertPriceInfo> var2,CurrencyConvertCallBack var3)
     {
         PaySDKManager.getsInstance().convertUsdToLocal(var1,var2,var3);
 
-    }
-    //虚拟币转本位币
-    public void convertVirtualToLocal(Context var1, List<ConvertPriceInfo> var2, CurrencyConvertCallBack var3)
-    {
-        PaySDKManager.getsInstance().convertVirtualToLocal(var1,var2,var3);
     }
 //    //发起在线支付或者短代支付
 //    public  void startSMSPay(Activity var1, StartPayEntity var2, StartPayCallBack var3)  {
